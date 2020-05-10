@@ -8,8 +8,7 @@ import java.util.List;
 @Data
 @AllArgsConstructor
 public class AssociateListResponse {
-    private List<AssociateResponse> associates;
+    private List<AssociateResponse> content;
     private Integer currentPage;
     private Integer lastPage;
 }
-
