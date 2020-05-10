@@ -1,0 +1,19 @@
+package br.com.igorc.voting.entity;
+
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+import javax.persistence.*;
+
+@Entity(name = "question")
+@Data
+@NoArgsConstructor
+public class QuestionEntity {
+    @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "question_seq")
+    @SequenceGenerator(name = "question_seq", allocationSize = 1)
+    private Long id;
+
+    @Column(nullable = false)
+    private String description;
+}
