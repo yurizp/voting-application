@@ -1,5 +1,6 @@
 package br.com.igorc.voting.entity;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -8,6 +9,7 @@ import javax.persistence.*;
 @Entity(name = "associate")
 @Data
 @NoArgsConstructor
+@AllArgsConstructor
 public class AssociateEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "associate_seq")
