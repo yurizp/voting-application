@@ -36,7 +36,7 @@ public class AssociateResource {
 
 	@GetMapping
 	public AssociateListResponse list(
-			@ApiParam(name = "Página", value = "Número da página.") @RequestParam(defaultValue = "0") int page
+			@ApiParam(name = "page", value = "Número da página.") @RequestParam(defaultValue = "0") int page
 	) {
 		return associateListResponseConverter.convert(service.list(page));
 	}

@@ -10,6 +10,7 @@ import javax.persistence.*;
 @Entity(name = "vote")
 @Data
 @NoArgsConstructor
+@AllArgsConstructor
 public class VoteEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "vote_seq")

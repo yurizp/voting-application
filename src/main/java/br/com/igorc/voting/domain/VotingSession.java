@@ -2,6 +2,7 @@ package br.com.igorc.voting.domain;
 
 import br.com.igorc.voting.enumeration.VoteEnumeration;
 import lombok.AllArgsConstructor;
+import lombok.EqualsAndHashCode;
 import lombok.Getter;
 
 import java.util.List;
@@ -10,6 +11,7 @@ import java.util.List;
  * Sessão de votação
  */
 @AllArgsConstructor
+@EqualsAndHashCode
 @Getter
 public class VotingSession {
 

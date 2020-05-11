@@ -6,13 +6,12 @@ import br.com.igorc.voting.domain.Associate;
 import br.com.igorc.voting.entity.AssociateEntity;
 import br.com.igorc.voting.repository.AssociateRepository;
 import lombok.AllArgsConstructor;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageRequest;
+import org.springframework.data.repository.PagingAndSortingRepository;
 import org.springframework.stereotype.Service;
 
 @Service
 @AllArgsConstructor
-public class AssociateService {
+public class AssociateService extends AbstractService<Associate, AssociateEntity, Long> {
 
     private AssociateRepository repository;
 
@@ -20,17 +19,19 @@ public class AssociateService {
 
     private AssociateConverter associateConverter;
 
-    private final Integer PAGE_SIZE = 10;
+    @Override
+    protected AssociateEntity convertToEntity(Associate domain) {
+        return associateEntityConverter.convert(domain);
+    }
 
-    public Associate create(Associate associate) {
-        AssociateEntity entity = associateEntityConverter.convert(associate);
-        repository.save(entity);
+    @Override
+    protected Associate convertToDomain(AssociateEntity entity) {
         return associateConverter.convert(entity);
     }
 
-    public Page<Associate> list(int page) {
-        PageRequest pageRequest = PageRequest.of(page, PAGE_SIZE);
-        return repository.findAll(pageRequest).map(e -> associateConverter.convert(e));
+    @Override
+    protected PagingAndSortingRepository<AssociateEntity, Long> getRepository() {
+        return repository;
     }
 
 }

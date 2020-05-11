@@ -11,6 +11,7 @@ import java.util.List;
 @Entity(name = "voting_session")
 @Data
 @NoArgsConstructor
+@AllArgsConstructor
 public class VotingSessionEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "voting_session_seq")

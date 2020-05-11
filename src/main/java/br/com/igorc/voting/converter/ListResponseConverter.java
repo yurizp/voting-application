@@ -21,7 +21,7 @@ abstract class ListResponseConverter<R, I, O> {
         return page.getNumber();
     }
 
-    protected abstract R createResponse(List<O> content, int currentPage, int lastPage);
+    abstract protected R createResponse(List<O> content, int currentPage, int lastPage);
 
     abstract protected O convertElement(I associate);
 
